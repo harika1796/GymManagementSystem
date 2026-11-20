@@ -93,4 +93,35 @@ public class TrainerService {
             System.out.println("Trainer not found!");
         }
     }
+
+    // Delete trainer by ID
+    public void deleteTrainer() {
+
+        System.out.print("Enter Trainer ID to delete: ");
+        int id = sc.nextInt();
+
+        Trainer selectedTrainer = null;
+
+        for (GymRecord record : GymDataStore.records) {
+
+            if (record instanceof Trainer) {
+
+                Trainer trainer = (Trainer) record;
+
+                if (trainer.id == id) {
+                    selectedTrainer = trainer;
+                    break;
+                }
+            }
+        }
+
+        if (selectedTrainer == null) {
+            System.out.println("Trainer not found!");
+            return;
+        }
+
+        GymDataStore.records.remove(selectedTrainer);
+
+        System.out.println("Trainer deleted successfully!");
+    }
 }
