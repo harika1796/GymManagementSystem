@@ -1,4 +1,3 @@
-
 package service;
 
 import model.Member;
@@ -51,5 +50,39 @@ public class AttendanceService {
         System.out.println("Attendance marked successfully!");
         System.out.println("Member: " + selectedMember.name);
         System.out.println("Date: " + attendance.date);
+    }
+
+    public void viewAttendance() {
+
+        if (GymDataStore.records.isEmpty()) {
+            System.out.println("No attendance records found!");
+            return;
+        }
+
+        boolean found = false;
+
+        System.out.println("\n===== ATTENDANCE HISTORY =====");
+
+        System.out.printf("%-12s %-20s %-15s%n",
+                "Member ID", "Member Name", "Date");
+
+        for (GymRecord record : GymDataStore.records) {
+
+            if (record instanceof Attendance) {
+
+                Attendance attendance = (Attendance) record;
+
+                System.out.printf("%-12d %-20s %-15s%n",
+                        attendance.memberId,
+                        attendance.memberName,
+                        attendance.date);
+
+                found = true;
+            }
+        }
+
+        if (!found) {
+            System.out.println("No attendance records found!");
+        }
     }
 }
