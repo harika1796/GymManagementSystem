@@ -33,7 +33,9 @@ public class MemberService {
         int age = InputUtil.readNumber();
 
         if (age < 16 || age > 100) {
-            throw new InvalidAgeException("Age must be between 16 and 100!");
+            throw new InvalidAgeException(
+                "Age must be between 16 and 100!"
+            );
         }
 
         String phone;
@@ -46,7 +48,9 @@ public class MemberService {
                 break;
             }
 
-            System.out.println("Invalid phone number! Enter a valid 10-digit number.");
+            System.out.println(
+                "Invalid phone number! Enter a valid 10-digit number."
+            );
         }
 
         // Check for duplicate phone numbers
@@ -56,7 +60,9 @@ public class MemberService {
                 Member m = (Member) r;
 
                 if (m.phone.equals(phone)) {
-                    throw new DuplicateMemberException("Member already exists!");
+                    throw new DuplicateMemberException(
+                        "Member already exists!"
+                    );
                 }
             }
         }
