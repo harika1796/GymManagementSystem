@@ -15,6 +15,7 @@ public class TrainerService {
         this.sc = sc;
     }
 
+    // Add a new trainer
     public void addTrainer() {
 
         System.out.print("Enter Trainer Name: ");
@@ -34,6 +35,7 @@ public class TrainerService {
         System.out.println("Trainer ID: " + id);
     }
 
+    // View all trainers
     public void viewTrainers() {
 
         boolean found = false;
@@ -59,5 +61,36 @@ public class TrainerService {
             System.out.println("No trainers found!");
         }
     }
-}
 
+    // Search trainer by ID
+    public void searchTrainer() {
+
+        System.out.print("Enter Trainer ID to search: ");
+        int id = sc.nextInt();
+
+        boolean found = false;
+
+        for (GymRecord record : GymDataStore.records) {
+
+            if (record instanceof Trainer) {
+
+                Trainer trainer = (Trainer) record;
+
+                if (trainer.id == id) {
+
+                    System.out.println("\n===== TRAINER FOUND =====");
+                    System.out.println("Trainer ID: " + trainer.id);
+                    System.out.println("Name: " + trainer.name);
+                    System.out.println("Specialization: " + trainer.specialization);
+
+                    found = true;
+                    break;
+                }
+            }
+        }
+
+        if (!found) {
+            System.out.println("Trainer not found!");
+        }
+    }
+}
