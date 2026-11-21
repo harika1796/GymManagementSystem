@@ -18,7 +18,7 @@ public class AttendanceService {
     public void markAttendance() {
 
         System.out.print("Enter Member ID: ");
-        int id = sc.nextInt();
+        int id = Integer.parseInt(sc.nextLine());
 
         Member selectedMember = null;
 

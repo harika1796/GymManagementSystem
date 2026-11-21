@@ -5,9 +5,8 @@ import java.util.Scanner;
 
 public class InputUtil {
 
-    private static Scanner sc = new Scanner(System.in);
+    public static final Scanner sc = new Scanner(System.in);
 
-    // Read valid integer input
     public static int readNumber() {
 
         while (true) {
@@ -19,7 +18,6 @@ public class InputUtil {
         }
     }
 
-    // Read text input
     public static String readLine() {
         return sc.nextLine();
     }

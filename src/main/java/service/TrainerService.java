@@ -19,7 +19,7 @@ public class TrainerService {
     public void addTrainer() {
 
         System.out.print("Enter Trainer Name: ");
-        sc.nextLine();
+        
         String name = sc.nextLine();
 
         System.out.print("Enter Specialization: ");
@@ -66,7 +66,7 @@ public class TrainerService {
     public void searchTrainer() {
 
         System.out.print("Enter Trainer ID to search: ");
-        int id = sc.nextInt();
+        int id = Integer.parseInt(sc.nextLine());
 
         boolean found = false;
 
@@ -98,7 +98,7 @@ public class TrainerService {
     public void deleteTrainer() {
 
         System.out.print("Enter Trainer ID to delete: ");
-        int id = sc.nextInt();
+        int id = Integer.parseInt(sc.nextLine());
 
         Trainer selectedTrainer = null;
 
